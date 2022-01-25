@@ -1,7 +1,7 @@
-import { naves, navesInterface } from './naveInterface';
+import { Naves} from './naves.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 
@@ -12,16 +12,20 @@ import { Observable } from 'rxjs';
 })
 export class MiServicioService {
 
-  info: navesInterface;
+  private currentNavesSubject: BehaviorSubject<Naves> = new BehaviorSubject({} as Naves);
+  public  currentNaves: Observable<Naves> = this.currentNavesSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
+  naves: any;
+  
 
-  getNaves(): Observable<naves> { 
 
-    return this.http.get<naves>('https://swapi.dev/api/starships/?page=1');
+  getNaves(numPagina: number): Observable<Naves> { 
+    
+    return this.http.get<Naves>(`https://swapi.dev/api/starships/?page=${numPagina}`);
      
   }
-
+  
   
 }

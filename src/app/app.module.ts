@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MiServicioService } from './mi-servicio.service';
+import { DetallesNaveComponent } from './detalles-nave/detalles-nave.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    DetallesNaveComponent
   ],
   imports: [
     BrowserModule,

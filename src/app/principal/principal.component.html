@@ -1,5 +1,8 @@
-<div *ngFor="let nave of naves">
-    <div *ngIf="naves">Nombre nave: {{nave.name}}</div>
-    <div *ngIf="naves">Modelo nave: {{nave.model}}</div>
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+    <div *ngFor="let nave of naves; let i = index;" type="button" (click)="hola(i)">
+        <div *ngIf="naves">Nombre nave: {{nave.name}} {{i+1}}</div>
+        <div *ngIf="naves">Modelo nave: {{nave.model}}</div>
+    </div>
 </div>
-<button class="btn btn-danger">Hola</button>
+
+<app-detalles-nave *ngIf="active" [index]="index" [naves]="naves"></app-detalles-nave>
