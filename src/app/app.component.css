@@ -1,0 +1,9 @@
+.imagen {
+  position: absolute;
+  z-index: -1;
+  background-image: url("../assets/imagenes/cielo-estrellas.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: border-box;
+  background-attachment: fixed;
+}

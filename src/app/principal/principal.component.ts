@@ -27,6 +27,10 @@ export class PrincipalComponent implements OnInit {
       this.naves = data.results;
     });
 
+    //recibe el valor de active para cambiar de vista de todas las naves a detalles i alrevés
+
+    this.miServicio.active$.subscribe(resp => { this.active = resp });
+
     
     
 

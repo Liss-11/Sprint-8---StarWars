@@ -1,6 +1,32 @@
-<div class="container-fluid">
-    <div clas="container">
-        <p>{{naves[index].name}}</p>
+<div class="container-fluid p-5 centrado">
+    <div class="container nave row">
+        <div class="p-5 d-flex justify-content-center">
+            <img src="" alt="">
+        </div>
+        <div class="col-md-6">
+            <p>NOMBRE: {{naves[index].name.toUpperCase()}}</p>
+            <p>MODELO: {{naves[index].model}}</p>
+            <p>Manufacturer: {{naves[index].manufacturer}}</p>
+            <p>Starship class: {{naves[index].starship_class}}</p>
+            <p>Capacidad de Carga: {{naves[index].cargo_capacity}}</p>
+            <p>Passengers: {{naves[index].passengers}}</p>
+            <p>Largada: {{naves[index].length}}</p>
+            <p>Max atmosphering speed: {{naves[index].max_atmosphering_speed}}</p>
+        </div>
+        <div class="col-md-6">
+            <p>MGLT: {{naves[index].MGLT}}</p>
+            <p>Hiperdrive-rating: {{naves[index].hyperdrive_rating}}</p>
+            <p>Consumables: {{naves[index].consumables}}</p>
+            <p>Cost in credits: {{naves[index].cost_in_credits}}</p>
+            <p>Created: {{naves[index].created}}</p>
+            <p>Crew: {{naves[index].crew}}</p>
+            <p>Edited: {{naves[index].edited}}</p>
+            <p>URL: {{naves[index].url}}</p>
+        </div>
+        <div class="d-flex justify-content-center p-2">
+            <button class="btn btn btn-primary" (click)="close()">CERRAR</button>
+        </div>
     </div>
+    
 
 </div>

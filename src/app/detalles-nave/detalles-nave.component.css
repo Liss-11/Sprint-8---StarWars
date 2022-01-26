@@ -1,0 +1,17 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+.nave {
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: rgb(31, 29, 29);
+  transform: scale(0.97);
+  color: #c0c0c0;
+}

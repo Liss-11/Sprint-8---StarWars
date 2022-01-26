@@ -1,7 +1,9 @@
-<div class="container" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+<div *ngIf="!active" class="container pt-5" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
     <div *ngFor="let nave of naves; let i = index;" type="button" (click)="hola(i)">
-        <div *ngIf="naves">Nombre nave: {{nave.name}} {{i+1}}</div>
-        <div *ngIf="naves">Modelo nave: {{nave.model}}</div>
+        <div class="nave">
+            <p *ngIf="naves">{{i+1}} - {{nave.name.toUpperCase()}} </p>
+            <p *ngIf="naves">modelo: {{nave.model}}</p>
+        </div>
     </div>
 </div>
 
