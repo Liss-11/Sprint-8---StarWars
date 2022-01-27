@@ -5,6 +5,10 @@
             <p *ngIf="naves">modelo: {{nave.model}}</p>
         </div>
     </div>
+    <div *ngIf="modal" class="alert alert-primary alert-dismissible fade show d-flex justify-content-center w-50 m-auto mb-4" role="alert">
+        <strong>NO HAY MÁS NAVES!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 </div>
 
 <app-detalles-nave *ngIf="active" [index]="index" [naves]="naves"></app-detalles-nave>
