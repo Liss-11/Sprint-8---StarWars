@@ -1,4 +1,33 @@
 .contenedor {
-  min-height: 100vh;
-  width: 80%;
+  margin-top: 20%;
+  position: relative;
+}
+.img1 {
+  margin-top: 20%;
+  z-index: -1;
+}
+.contenido {
+  z-index: 1000;
+  position: absolute;
+
+  left: 10%;
+  margin: auto;
+  color: rgb(255, 255, 255);
+}
+.abajo {
+  bottom: 10%;
+}
+.arriba {
+  top: 10%;
+}
+h6 {
+  font-size: 3vw;
+  font-family: fantasy;
+  font-weight: 900;
+  text-shadow: rgb(129, 128, 128) 2px 4px;
+}
+.img1:hover {
+  margin-top: 25%;
+  margin-left: -2.5%;
+  margin-right: -2.5%;
 }
