@@ -8,7 +8,7 @@
             <button *ngIf="!logeado" class="boton"
             data-bs-toggle="modal" data-bs-target="#login" id="log" (click)="cambio('login')">LOG IN &nbsp; &nbsp;  //</button>
 
-            <button *ngIf="logeado" (click)="logOut()">LOG OUT</button>
+            <button *ngIf="logeado" class="boton" (click)="logOut()">LOG OUT &nbsp; &nbsp; //</button>
 
             <button class="boton" data-bs-toggle="modal" data-bs-target="#login" (click)="cambio('register')">SIGN UP</button>
           

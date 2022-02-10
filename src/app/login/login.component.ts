@@ -80,12 +80,7 @@ export class LoginComponent implements OnInit {
         let nombre = this.log['userid'].value;
         let contrasena = this.log['password'].value;
         if (localStorage.getItem(nombre) !== null && contrasena == localStorage.getItem(nombre)) {
-          //this.authService.authLogin(this.model);  
-          /* localStorage.setItem('isLoggedIn', "true");
-          localStorage.setItem('token', this.log['userid'].value);
-          this.router.navigate([this.returnUrl]);
           
- */
           this.authService.login(nombre);
           //activo i pulso el boton de guardar para que cierre el modal
 

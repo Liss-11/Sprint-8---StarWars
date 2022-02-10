@@ -1,6 +1,7 @@
 import { AutentificacionService } from './../servicios/autentificacion.service';
 import { MiServicioService } from './../servicios/mi-servicio.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabezeraComponent implements OnInit {
 
-  constructor(private miServicio: MiServicioService, private Auth: AutentificacionService) { }
+  constructor(private miServicio: MiServicioService, private Auth: AutentificacionService, private route: Router) { }
 
   activar: boolean;
   logeado: boolean;
@@ -28,10 +29,19 @@ export class CabezeraComponent implements OnInit {
 
         let boton = document.querySelector("#log") as HTMLButtonElement;  
         boton?.click();
-        this.logeado = false;
+        
         
       } 
-      this.logeado = true;
+      
+    })
+
+    this.Auth.logeado$.subscribe(resp => { 
+
+      this.logeado = resp;
+      if (this.logeado === false) { 
+        this.route.navigate(['']);
+      }
+
     })
 
   }
@@ -57,7 +67,7 @@ export class CabezeraComponent implements OnInit {
 
   logOut() { 
     this.Auth.logout();
-    this.logeado = false;
+    
   }
 
 }

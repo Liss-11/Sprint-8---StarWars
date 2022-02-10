@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AutentificacionService {
 
   @Output() close$: EventEmitter<boolean> = new EventEmitter();
- 
+  @Output() logeado$: EventEmitter<boolean> = new EventEmitter();
   @Output() modal$: EventEmitter<boolean> = new EventEmitter();
 
   logeado: boolean;
@@ -28,7 +28,7 @@ export class AutentificacionService {
           localStorage.setItem('token', nombre);
     this.router.navigate([this.returnUrl]);
     this.logeado = true;
-    /* this.Guard.canActivate(); */
+    this.logeado$.emit(this.logeado);
    
 
   }
@@ -38,7 +38,7 @@ export class AutentificacionService {
    localStorage.setItem('isLoggedIn','false');    
     localStorage.removeItem('token');  
     this.logeado = false;
-    /* this.Guard.canActivate(); */
+     this.logeado$.emit(this.logeado);
   } 
   
   close() { 
