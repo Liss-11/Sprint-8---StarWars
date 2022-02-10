@@ -1,0 +1,27 @@
+.cabezera {
+  background-color: rgb(0, 0, 0);
+}
+.logo {
+  margin: auto;
+  max-width: 70%;
+}
+.login {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  padding: 1em;
+}
+
+/* Estilo del modal */
+.estil {
+  background-color: rgb(49, 49, 49);
+}
+.boton {
+  color: gray;
+  background: none;
+  border: none;
+  font-size: 0.9em;
+}
+.boton:hover {
+  color: white;
+}

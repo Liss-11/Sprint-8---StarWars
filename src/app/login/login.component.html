@@ -1,0 +1,92 @@
+
+<div class="container-fluid estilbody" id="logModal">
+    <!-- id="logModal" -->
+    
+    <div *ngIf="!activar" class="container ">
+       
+            <div class="d-flex justify-content-center"><h3>SIGN IN</h3></div>
+            <div class="d-flex justify-content-center"><p class="error">{{messagelog}}</p></div>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" onkeydown = "return event.key != 'Enter';">
+                <div class="form-group clearfix">
+                       <input class="form-control mb-4" formControlName="userid" type="text" placeholder="Username" />
+                        <p class="error" *ngIf="log['userid'].hasError('required') && log['userid'].touched && loginForm.invalid">Debe
+                            Ingresa tu nombre de Usuario, porfavor
+                        </p>
+                </div>
+                <div class="form-group clearfix">
+                        <input class="form-control mb-4" formControlName="password" type="password" placeholder="Password" />
+                        
+                        <p class="error" *ngIf="log['password'].hasError('required') && log['password'].touched && loginForm.invalid">Debe
+                            Introduce una contraseña, por favor
+                        </p>
+                        
+                </div>
+                <div class="col-xs-12 ">
+                    <button class="btn btn-secondary w-100" id="cerrarlog"
+                        type="submit">Sing in
+                    </button>
+                </div>
+            </form>
+                <div class="col-xs-12 mt-5">
+                    <button class="btn amarillo w-100" type="button" (click)="activar = true">Crear una cuenta
+                    </button>
+                </div>
+    </div>
+
+    <!-- REGISTRO -->
+          
+    <div *ngIf="activar" class="container">
+    
+        <div class="d-flex justify-content-center">
+            <h3>CREATE YOUR ACCOUNT</h3>
+        </div>
+        <div class="d-flex justify-content-center">
+            <p [ngClass]="{'error': usuarioexiste, 'correcto': !usuarioexiste}">{{messagereg}}</p>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="register()" onkeydown = "return event.key != 'Enter';" >
+
+            
+                <div class="form-group clearfix">
+                        <input class="form-control mb-4" formControlName="usuario" type="text" placeholder="Nombre Usuario"/>
+                        <p class="error" *ngIf="registre['usuario'].hasError('required') && registre['usuario'].touched && registerForm.invalid">Debe
+                            Ingresa un nombre de Usuario, porfavor
+                        </p>
+                </div>
+                <div class="form-group clearfix">
+                    
+                        <input class="form-control mb-4" formControlName="contrasena" type="password" placeholder="Contraseña" />
+                        <p class="error" *ngIf="registre['contrasena'].hasError('required') && registre['contrasena'].touched">Debe
+                            ingresar una contraseña
+                        </p>
+                        <p class="error" *ngIf="registerForm.invalid && registre['contrasena'].hasError('minlength') && registre['contrasena'].dirty">
+                            La contraseña debe contener un mínimo de 8 carácteres
+                        </p>
+                 
+                </div>
+                <div class="form-group clearfix">
+                        <input class="form-control mb-4" formControlName="repContrasena" type="password" placeholder="Repite Contraseña" />
+                    <p class="error" *ngIf="registre['repContrasena'].hasError('required') && registre['repContrasena'].touched">Debe
+                        Repite la contraseña escogida
+                    </p>
+                    <p class="error" *ngIf="!registre['repContrasena'].hasError('required') && registre['repContrasena'].touched && registerForm.invalid ">Debe
+                        Las contraseña no coincide ocn la original
+                    </p>
+                    
+                </div>
+    
+                <div class="col-xs-12 ">
+                    <button class="btn btn-secondary w-100" type="submit" id="cerrarreg">Create Account</button>
+                </div>
+            </form>
+            <div class="col-xs-12 mt-5 ">
+                <p class="text-center" style="color:white">¿Ya tienes una Cuenta?</p>
+                <button class="btn amarillo w-100" type="button" (click)="activar=false">Sing In
+                </button>
+            </div>
+        
+    
+        </div>
+</div>
+    
+

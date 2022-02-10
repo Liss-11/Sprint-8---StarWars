@@ -6,4 +6,46 @@
   background-size: cover;
   background-clip: border-box;
   background-attachment: fixed;
+  padding: 0;
+  top: 15%;
+}
+
+.logo {
+  margin: auto;
+  max-width: 70%;
+}
+.login {
+  display: flex;
+  justify-content: right;
+  align-items: end;
+  padding: 1em;
+}
+.fijo {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+.enlace {
+  padding: 0;
+  border: 1px solid rgb(134, 134, 134);
+  display: flex;
+  justify-content: center;
+}
+a {
+  color: rgb(129, 128, 128);
+}
+.items {
+  border-right: 1px solid rgb(134, 134, 134);
+  padding: 0.2em 5em;
+}
+.item1 {
+  border-left: 1px solid rgb(134, 134, 134);
+}
+
+a:hover {
+  color: white;
+}
+.activa {
+  color: white;
+  text-underline-position: below;
 }

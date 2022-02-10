@@ -1,6 +1,6 @@
-import { navesInterface } from '../naves.model';
-import { Component, OnInit } from '@angular/core';
-import { MiServicioService } from './../mi-servicio.service';
+import { navesInterface } from '../interfaces/naves.model';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MiServicioService } from './../servicios/mi-servicio.service';
 
 @Component({
   selector: 'app-principal',
@@ -17,6 +17,7 @@ export class PrincipalComponent implements OnInit {
   active: boolean;
   index: number;
   modal: boolean;
+  
 
   ngOnInit(): void {
 
@@ -27,6 +28,7 @@ export class PrincipalComponent implements OnInit {
     this.miServicio.getNaves(this.pagActual).subscribe(data => {
       console.log(data.results)
       this.naves = data.results;
+
     });
 
 
@@ -48,6 +50,7 @@ export class PrincipalComponent implements OnInit {
       this.miServicio.getNaves(this.pagActual).subscribe(data => {
         console.log(data.results)
         this.naves.push(...data.results);
+        
       });
       
     }
@@ -58,13 +61,19 @@ export class PrincipalComponent implements OnInit {
     }
    
   }
-
-  hola(i:number) { 
+hola(i:number) { 
     console.log(this.naves[i]);
     this.active = true;
     this.index = i;
+   
   }
+  
+
+ 
 }
+
+
+
 
 
 
