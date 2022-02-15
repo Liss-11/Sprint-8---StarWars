@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CabezeraComponent } from './cabezera/cabezera.component';
+import { TargetesComponent } from './targetes/targetes.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CabezeraComponent } from './cabezera/cabezera.component';
     DetallesNaveComponent,
     HomeComponent,
     LoginComponent,
-    CabezeraComponent
+    CabezeraComponent,
+    TargetesComponent
   ],
   imports: [
     BrowserModule,

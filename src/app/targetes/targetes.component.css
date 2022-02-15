@@ -16,15 +16,6 @@
   transform: scale(0.97);
   color: #c0c0c0;
 }
-.hidden {
-  display: none;
-}
-.boton {
-  border: none;
-  background-color: rgb(31, 29, 29);
-  color: rgb(109, 182, 0);
-  font-weight: bolder;
-}
-.boton:hover {
-  color: rgb(220, 255, 168);
+li {
+  list-style: none;
 }

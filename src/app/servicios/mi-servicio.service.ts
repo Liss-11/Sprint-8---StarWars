@@ -3,6 +3,7 @@ import { Naves, navesInterface} from './../interfaces/naves.model';
 import { HttpClient} from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pilot } from '../interfaces/pilot.model';
 
 
 
@@ -24,6 +25,8 @@ export class MiServicioService {
   index: number;
   @Output() index$: EventEmitter<number> = new EventEmitter();
   imagen: any;
+
+  @Output() targeta$: EventEmitter<boolean> = new EventEmitter();
   
 
 
@@ -33,6 +36,11 @@ export class MiServicioService {
    /*  return this.http.get<Naves>(`https://swapi.dev/api/starships/?page=${numPagina}`); */
     return this.http.get <Naves>(`https://swapi.dev/api/starships/?page=${numPagina}`);
      
+  }
+
+  getPilotos(urlPiloto: string): Observable<Pilot> { 
+
+    return this.http.get<Pilot>(urlPiloto);
   }
 
 
@@ -58,6 +66,12 @@ export class MiServicioService {
     }
 
     this.active$.emit(this.resposta);
+  }
+
+  closeTargeta() { 
+
+    this.targeta$.emit(false);
+
   }
 
   //Limpiar los inpiuts del HTML
