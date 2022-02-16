@@ -1,0 +1,54 @@
+
+<div class="container-fluid centrado">
+    <div class="container nave row">
+
+        <div class="col-md-6">
+            <h2><i style="color:white">{{pilotoX.name.toUpperCase()}}</i></h2>
+            <p>Height: {{pilotoX.height}}</p>
+            <p>Mass: {{pilotoX.mass}}</p>
+            <p>Hair color: {{pilotoX.hair_color}}</p>
+            <p>Skin color: {{pilotoX.skin_color}}</p>
+            <p>Eye color: {{pilotoX.eye_color}}</p>
+            <p>Birth year: {{pilotoX.birth_year}}</p>
+            <p>Gender: {{pilotoX.gender}}</p>
+            <p>Homeworld: <a href="{{pilotoX.homeworld}}" target="_blank">{{pilotoX.homeworld}}</a></p>
+            <p>Films:</p>
+            <ul *ngFor="let film of pilotoX.films">
+                <a href="{{film}}" target="_blank">
+                    <li>{{film}}</li>
+                </a>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            
+            <h2>&nbsp;</h2>
+            <p>Species:</p> 
+                <ul *ngFor="let specie of pilotoX.species">
+                    <a href="{{specie}}" target="_blank"><li>{{specie}}</li></a>
+                </ul>
+            
+            <p>Vehicles:</p> 
+                <ul *ngFor="let vehicle of pilotoX.vehicles">
+                    <a href="{{vehicle}}" target="_blank"><li>{{vehicle}}</li></a>
+                </ul>
+            
+            <p>Starships:</p>
+                <ul *ngFor="let starship of pilotoX.starships">
+                    <a href="{{starship}}" target="_blank"><li>{{starship}}</li></a>
+                </ul>
+
+            <p>Created: {{pilotoX.created}}</p>
+            <p>Edited: {{pilotoX.edited}}</p>
+            <p>URL: <a href="{{pilotoX.url}}" target="_blank">{{pilotoX.url}}</a></p>
+        
+        </div>
+
+       
+       
+        <div class="d-flex justify-content-center p-2">
+            <button class="btn btn btn-primary" (click)="close()">CERRAR</button>
+        </div>
+    </div>
+
+
+</div>

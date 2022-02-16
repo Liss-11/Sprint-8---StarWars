@@ -17,7 +17,8 @@ export interface navesInterface {
         max_atmosphering_speed: string,
         passengers: string,
         starship_class: string,
-        url: string
+        url: string,
+        pilots: [string]
     
   
 }

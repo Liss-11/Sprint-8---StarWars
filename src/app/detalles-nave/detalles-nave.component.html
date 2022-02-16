@@ -1,5 +1,8 @@
-<div class="container-fluid centrado">
-    <div class="container nave row">
+<div  class="container-fluid centrado" [class.hidden]="activo">
+    <div class="container nave row" >
+        
+        <!-- <div [class.hidden]="activo"> -->
+
         
         <div class="p-5 d-flex justify-content-center">
             <img class="imgDetalle" src="" alt="">
@@ -13,8 +16,10 @@
             <p>Passengers: {{naves[index].passengers}}</p>
             <p>Largada: {{naves[index].length}}</p>
             <p>Max atmosphering speed: {{naves[index].max_atmosphering_speed}}</p>
+            
         </div>
         <div class="col-md-6">
+            <h2>&nbsp;</h2>
             <p>MGLT: {{naves[index].MGLT}}</p>
             <p>Hiperdrive-rating: {{naves[index].hyperdrive_rating}}</p>
             <p>Consumables: {{naves[index].consumables}}</p>
@@ -22,12 +27,26 @@
             <p>Created: {{naves[index].created}}</p>
             <p>Crew: {{naves[index].crew}}</p>
             <p>Edited: {{naves[index].edited}}</p>
-            <p>URL: {{naves[index].url}}</p>
+            <p>URL: <a href="{{naves[index].url}}" target="_blank">{{naves[index].url}}</a></p>
+            
+        </div>
+        <div class="col-md-12">
+            <p>PILOTOS:</p>
+            <p *ngFor="let pilot of pilotos" class="col-md-3">
+                <button class="boton" (click)='activar(pilot)'>{{pilot.name}}</button>
+            </p>
         </div>
         <div class="d-flex justify-content-center p-2">
             <button class="btn btn btn-primary" (click)="close()">CERRAR</button>
         </div>
+
+        <!-- </div> -->
+            
+        
+        
     </div>
     
 
 </div>
+
+<app-targetes *ngIf="activo" [pilotoX]="pilotoX"></app-targetes>

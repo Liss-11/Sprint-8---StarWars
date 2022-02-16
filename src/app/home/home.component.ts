@@ -1,5 +1,6 @@
 import { AutentificacionService } from './../servicios/autentificacion.service';
 import { Component, OnInit } from '@angular/core';
+import { AutentificacionGuard } from '../autentificacion.guard';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AutentificacionService) { }
+  constructor(private AuthService: AutentificacionService, private Guard: AutentificacionGuard) { }
 
-  /* modal: HTMLElement = document.querySelector("#login") as HTMLElement; */
+  
 
   ngOnInit(): void {
 
-   /*  this.authService.close$.subscribe(close => { 
-      this.modal.classList.add('hide'); */
+    
+   
+  }
+  comprueba() { 
+
+    if (this.Guard.isLoggedIn() === false) { 
+  
+      this.AuthService.loginModalOpen();
     }
+   
+  }
 
 
   }

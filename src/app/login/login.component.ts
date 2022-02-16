@@ -1,10 +1,8 @@
 import { MiServicioService } from './../servicios/mi-servicio.service';
-import { LocalStorageService } from './../servicios/local-storage.service';
-import { Component, OnInit, OnDestroy, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router'; 
-import { ILogin } from '../interfaces/login.model';
 import { AutentificacionService } from '../servicios/autentificacion.service';
-import { FormBuilder, FormGroup, PatternValidator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +28,7 @@ export class LoginComponent implements OnInit {
   messagereg: string;
   returnUrl: string;
   usuarioexiste: boolean;
-
+  
   //Formulario Registro
 
   @Input() activar: boolean;
@@ -57,9 +55,11 @@ export class LoginComponent implements OnInit {
     /* this.returnUrl = '/starships'; */
     this.authService.logout();
     this.usuarioexiste = false;
-
+    
+    
   }
 
+  
   get log() { return this.loginForm.controls; }
   get registre() { return this.registerForm.controls; }
 
@@ -70,6 +70,27 @@ export class LoginComponent implements OnInit {
     return g.get('contrasena')?.value === g.get('repContrasena')?.value
       ? null : { 'mismatch': true };
 
+  }
+
+  borrar() { 
+    this.registerForm.setValue({ usuario: '', contrasena: '', repContrasena: '' });
+    this.loginForm.setValue({ userid: '', password: '' });
+    this.registerForm.markAsPristine();
+    this.registerForm.markAsUntouched();
+    this.registerForm.updateValueAndValidity();
+    this.loginForm.markAsPristine();
+    this.loginForm.markAsUntouched();
+    this.loginForm.updateValueAndValidity();
+    
+    if (this.activar) {
+      this.activar = false;
+      this.registerForm.valid;
+      
+    } else { 
+      this.activar = true;
+      this.loginForm.valid;
+    }
+    
   }
   
   login() {
